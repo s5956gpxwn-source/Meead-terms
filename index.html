@@ -10,9 +10,10 @@
         body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; -webkit-font-smoothing: antialiased; line-height: 1.6; }
         .container { background: var(--card); border-radius: 28px; padding: 35px 25px; max-width: 400px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .section-title { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 20px; }
-        .content { font-size: 15px; color: var(--sec); margin-bottom: 25px; text-align: justify; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
-        .content h3 { font-size: 16px; color: var(--text); margin-top: 15px; margin-bottom: 5px; }
+        .content { font-size: 14px; color: var(--sec); margin-bottom: 25px; text-align: justify; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+        .content h3 { font-size: 15px; color: var(--text); margin-top: 15px; margin-bottom: 5px; border-right: 3px solid var(--text); padding-right: 8px; }
         .eng { direction: ltr; text-align: left; }
+        .eng h3 { border-right: none; border-left: 3px solid var(--text); padding-left: 8px; padding-right: 0; }
         .dev-info { text-align: center; margin-top: 30px; }
         .avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--text); margin-bottom: 10px; object-fit: cover; }
         .dev-name { font-size: 17px; font-weight: 700; }
@@ -22,30 +23,33 @@
 </head>
 <body>
 <div class="container">
+    
     <div class="eng">
         <div class="section-title">Terms of Use</div>
         <div class="content">
-            Meead is an independent individual project. By using the app, you agree to these terms.
-            <h3>Subscriptions</h3>
-            Payments are handled via <b>Apple App Store</b>. Subscriptions automatically renew unless canceled in account settings.
-            <h3>Disclaimers</h3>
-            • <b>Accuracy:</b> Users are responsible for data accuracy and matching official workplace records.<br>
-            • <b>Liability:</b> The developer is not liable for missed alerts, lost data, or technical errors beyond control.
-            <h3>Jurisdiction</h3>
-            Governed by the laws of <b>Saudi Arabia</b>.
+            By using "Meead", you agree to these terms.
+            <h3>1. Intellectual Property & Trademark</h3>
+            "Meead" is an independent individual project. Any similarity in name with trademarks or entities in other countries is unintentional. The app does not claim affiliation with any government or private entity. All designs and interfaces are the developer's intellectual property.
+            <h3>2. Technical Disclaimer (As Is)</h3>
+            The app is provided "As Is" without warranties. The developer is not liable for damages resulting from: (a) Notification failure. (b) Data loss due to iCloud or OS issues. (c) Human error in data entry. Reliance on the app for sensitive schedules is the user's personal responsibility.
+            <h3>3. Notifications & System Settings</h3>
+            Alerts rely on iOS settings, power, and battery permissions. Users must grant all permissions to ensure background functionality.
+            <h3>4. Governing Law</h3>
+            These terms are governed by the laws of <b>Saudi Arabia</b>. Any disputes shall be settled exclusively in Saudi courts.
         </div>
     </div>
 
     <div class="section-title">شروط الاستخدام</div>
     <div class="content">
-        ميعاد هو عمل فردي مستقل. باستخدامك للتطبيق، فإنك توافق على هذه الشروط.
-        <h3>الاشتراكات والمدفوعات</h3>
-        تتم كافة العمليات المالية عبر متجر <b>Apple</b> وتخضع لسياساته. يتم تجديد الاشتراكات تلقائياً ما لم يتم إلغاؤها من إعدادات الحساب.
-        <h3>إخلاء المسؤولية</h3>
-        • <b>دقة البيانات:</b> المستخدم مسؤول عن دقة البيانات المدخلة ومطابقتها للسجلات الرسمية لجهة عمله.<br>
-        • <b>المسؤولية التقنية:</b> المطور غير مسؤول عن عدم وصول التنبيهات، فقدان البيانات، أو أي خلل تقني خارج عن الإرادة.
-        <h3>القانون المختص</h3>
-        تخضع هذه الشروط وتفسر وفقاً لأنظمة <b>المملكة العربية السعودية</b>.
+        باستخدامك لتطبيق "ميعاد"، فإنك توافق على الالتزام بالشروط التالية:
+        <h3>1. الملكية الفكرية والاسم التجاري:</h3>
+        تطبيق "ميعاد - Meead" هو عمل فردي مستقل، وأي تشابه في الاسم مع علامات تجارية أو كيانات في دول أخرى هو تشابه غير مقصود. التطبيق لا يدعي الارتباط بأي جهة حكومية أو خاصة، وجميع التصاميم والواجهات داخل التطبيق هي ملكية فكرية للمطور.
+        <h3>2. إخلاء المسؤولية التقنية:</h3>
+        يُقدم التطبيق "كما هو" (As Is) دون ضمانات صريحة أو ضمنية. المطور غير مسؤول عن أي أضرار قد تلحق بالمستخدم نتيجة: (أ) فشل وصول التنبيهات. (ب) فقدان البيانات بسبب خلل في مزامنة السحابة (iCloud) أو نظام التشغيل. (ج) أي خطأ بشري في إدخال البيانات. يقر المستخدم بأن الاعتماد على التطبيق في المواعيد الحساسة هو مسؤوليته الشخصية.
+        <h3>3. عمل التنبيهات وصلاحيات النظام:</h3>
+        يعتمد عمل التنبيهات (البصمة، الدوام، المهام) على إعدادات نظام iOS وصلاحيات الطاقة والبطارية؛ لذا يجب على المستخدم التأكد من منح التطبيق كافة الصلاحيات وضبط إعدادات الجهاز لضمان وصول التنبيهات في الخلفية.
+        <h3>4. القانون الواجب التطبيق:</h3>
+        تخضع هذه الشروط والأحكام وتُفسر وفقاً للأنظمة والقوانين السارية في <b>المملكة العربية السعودية</b>. وأي نزاع ينشأ عن استخدام التطبيق يكون الاختصاص الحصري فيه للمحاكم السعودية.
     </div>
 
     <div class="dev-info">
