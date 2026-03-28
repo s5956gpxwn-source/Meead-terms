@@ -3,64 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>شروط الاستخدام - Terms</title>
+    <title>شروط الاستخدام - Terms of Use</title>
     <style>
-        :root { --bg: #f2f2f7; --card: #ffffff; --text: #000000; --sec: #666666; --line: #e5e5ea; --icon: #000000; }
-        @media (prefers-color-scheme: dark) { :root { --bg: #000000; --card: #1c1c1e; --text: #ffffff; --sec: #ebebf599; --line: #38383a; --icon: #ffffff; } }
-        body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; -webkit-font-smoothing: antialiased; line-height: 1.6; }
-        .container { background: var(--card); border-radius: 28px; padding: 35px 25px; max-width: 400px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .section-title { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 20px; }
-        .content { font-size: 14px; color: var(--sec); margin-bottom: 25px; text-align: justify; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
-        .content h3 { font-size: 15px; color: var(--text); margin-top: 15px; margin-bottom: 5px; border-right: 3px solid var(--text); padding-right: 8px; }
-        .eng { direction: ltr; text-align: left; }
-        .eng h3 { border-right: none; border-left: 3px solid var(--text); padding-left: 8px; padding-right: 0; }
-        .dev-info { text-align: center; margin-top: 30px; }
-        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--text); margin-bottom: 10px; object-fit: cover; }
-        .dev-name { font-size: 17px; font-weight: 700; }
-        .x-icon { width: 45px; height: 45px; background: var(--icon); border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; color: var(--card); margin: 15px 0; text-decoration: none; }
+        :root { --bg: #f2f2f7; --card: #ffffff; --text: #000000; --sec: #666666; --line: #e5e5ea; --icon: #000000; --pill-bg: #e5e5ea; --pill-active: #007AFF; --pill-text: #333; --pill-active-text: #fff; }
+        @media (prefers-color-scheme: dark) { :root { --bg: #000000; --card: #1c1c1e; --text: #ffffff; --sec: #ebebf599; --line: #38383a; --icon: #ffffff; --pill-bg: #38383a; --pill-active: #0A84FF; --pill-text: #ccc; --pill-active-text: #fff; } }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, system-ui, 'SF Pro Text', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; -webkit-font-smoothing: antialiased; line-height: 1.7; }
+        .container { background: var(--card); border-radius: 28px; padding: 35px 25px; max-width: 420px; margin: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .lang-switcher { display: flex; justify-content: center; gap: 6px; margin-bottom: 25px; flex-wrap: wrap; }
+        .lang-btn { border: none; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; background: var(--pill-bg); color: var(--pill-text); transition: all 0.2s ease; }
+        .lang-btn.active { background: var(--pill-active); color: var(--pill-active-text); }
+        .section-title { font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 8px; }
+        .updated { font-size: 12px; color: var(--sec); text-align: center; margin-bottom: 20px; }
+        .content { font-size: 15px; color: var(--sec); margin-bottom: 10px; text-align: justify; }
+        .content h3 { font-size: 16px; color: var(--text); margin-top: 20px; margin-bottom: 6px; font-weight: 700; }
+        .content b { color: var(--text); }
+        .content ul { padding-inline-start: 20px; margin: 8px 0; }
+        .content li { margin-bottom: 6px; }
+        .lang-block { display: none; }
+        .lang-block.active { display: block; }
+        [dir="ltr"] .content { text-align: left; }
+        .footer { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--line); }
         .copyright { font-size: 11px; color: var(--sec); }
     </style>
 </head>
 <body>
 <div class="container">
-    
-    <div class="eng">
-        <div class="section-title">Terms of Use</div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+        <button class="lang-btn" onclick="setLang('en')">English</button>
+        <button class="lang-btn" onclick="setLang('fr')">Français</button>
+        <button class="lang-btn" onclick="setLang('tr')">Türkçe</button>
+        <button class="lang-btn" onclick="setLang('de')">Deutsch</button>
+    </div>
+
+    <!-- Arabic -->
+    <div class="lang-block" id="lang-ar">
+        <div class="section-title">شروط الاستخدام</div>
+        <div class="updated">آخر تحديث: مارس 2026</div>
         <div class="content">
-            By using "Meead", you agree to these terms.
-            <h3>1. Intellectual Property & Trademark</h3>
-            "Meead" is an independent individual project. Any similarity in name with trademarks or entities in other countries is unintentional. The app does not claim affiliation with any government or private entity. All designs and interfaces are the developer's intellectual property.
-            <h3>2. Technical Disclaimer (As Is)</h3>
-            The app is provided "As Is" without warranties. The developer is not liable for damages resulting from: (a) Notification failure. (b) Data loss due to iCloud or OS issues. (c) Human error in data entry. Reliance on the app for sensitive schedules is the user's personal responsibility.
-            <h3>3. Notifications & System Settings</h3>
-            Alerts rely on iOS settings, power, and battery permissions. Users must grant all permissions to ensure background functionality.
-            <h3>4. Governing Law</h3>
-            These terms are governed by the laws of <b>Saudi Arabia</b>. Any disputes shall be settled exclusively in Saudi courts.
+            باستخدامك تطبيق ميعاد ("التطبيق")، فإنك توافق على الشروط التالية. إذا لم توافق على أي من هذه الشروط، يرجى عدم استخدام التطبيق.
+
+            <h3>الترخيص والاستخدام</h3>
+            يمنحك المطور ترخيصاً محدوداً وغير حصري وغير قابل للتحويل لاستخدام التطبيق على أجهزة Apple الخاصة بك وفقاً لهذه الشروط واتفاقية ترخيص التطبيقات القياسية من Apple (EULA).
+
+            <h3>وصف الخدمة</h3>
+            ميعاد هو تطبيق لإدارة الدوام والمهام والإجازات ومتابعة الأداء. التطبيق أداة تنظيمية ولا يُقدم استشارات قانونية أو مالية أو مهنية. القرارات المبنية على بيانات التطبيق هي مسؤوليتك الشخصية.
+
+            <h3>الاشتراكات والمدفوعات</h3>
+            <ul>
+                <li>يوفر التطبيق محتوى مجاني ومميزات إضافية عبر اشتراك مدفوع ("ميعاد برو")</li>
+                <li>تتوفر باقات: شهرية، سنوية، ودائمة (دفعة واحدة)</li>
+                <li>تتم جميع المدفوعات عبر حساب Apple الخاص بك</li>
+                <li>الاشتراكات الشهرية والسنوية تُجدد تلقائياً ما لم تُلغَ قبل 24 ساعة على الأقل من نهاية الفترة الحالية</li>
+                <li>يُخصم مبلغ التجديد من حساب Apple خلال 24 ساعة قبل نهاية الفترة الحالية</li>
+                <li>يمكنك إدارة اشتراكاتك وإلغائها من إعدادات حساب Apple</li>
+                <li>لا يمكن استرداد المبالغ المدفوعة عن الفترة الحالية من الاشتراك بعد تفعيله</li>
+                <li>الباقة الدائمة هي عملية شراء لمرة واحدة ولا تتجدد</li>
+            </ul>
+
+            <h3>بياناتك ومسؤوليتك</h3>
+            <ul>
+                <li>أنت المسؤول الوحيد عن البيانات التي تُدخلها في التطبيق</li>
+                <li>لا نتحمل مسؤولية فقدان البيانات الناتج عن حذف التطبيق أو تعطل الجهاز أو أي سبب خارج عن إرادتنا</li>
+                <li>مزامنة iCloud تعتمد على خدمات Apple وقد تتأثر بتوفر الخدمة أو مساحة التخزين لديك</li>
+            </ul>
+
+            <h3>الملكية الفكرية</h3>
+            جميع حقوق الملكية الفكرية للتطبيق بما في ذلك التصميم والشفرة البرمجية والثيمات والأيقونات والمحتوى مملوكة للمطور. لا يحق لك نسخ أو تعديل أو توزيع أو إعادة هندسة أي جزء من التطبيق.
+
+            <h3>إخلاء المسؤولية</h3>
+            <ul>
+                <li>التطبيق يُقدم "كما هو" بدون ضمانات من أي نوع، صريحة أو ضمنية</li>
+                <li>لا نضمن أن التطبيق سيكون خالياً من الأخطاء أو متاحاً بشكل مستمر</li>
+                <li>لا نتحمل مسؤولية أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام التطبيق</li>
+                <li>حسابات الأوفر تايم والخصومات والإحصائيات هي تقديرية وإرشادية ولا يجب الاعتماد عليها كمرجع رسمي</li>
+                <li>إعدادات الإجازات الافتراضية مبنية على نظام العمل السعودي وقد لا تنطبق على جهة عملك — يرجى التحقق من سياسات جهة عملك</li>
+            </ul>
+
+            <h3>حدود المسؤولية</h3>
+            في أقصى حد يسمح به القانون المعمول به، لا يتحمل المطور أي مسؤولية عن أي أضرار خاصة أو عرضية أو تبعية أو تأديبية، بما في ذلك فقدان البيانات أو الأرباح، حتى لو تم إبلاغه بإمكانية حدوث مثل هذه الأضرار.
+
+            <h3>إنهاء الاستخدام</h3>
+            يحق للمطور تعليق أو إنهاء وصولك للتطبيق في حال انتهاكك لهذه الشروط. يمكنك التوقف عن استخدام التطبيق في أي وقت بحذفه من جهازك.
+
+            <h3>شروط Apple</h3>
+            استخدام التطبيق يخضع أيضاً لاتفاقية ترخيص التطبيقات القياسية من Apple (Apple EULA) وشروط خدمة App Store. في حال تعارض هذه الشروط مع شروط Apple، تسود شروط Apple.
+
+            <h3>القانون الواجب التطبيق</h3>
+            تخضع هذه الشروط لأنظمة المملكة العربية السعودية وتُفسر وفقاً لها.
+
+            <h3>التغييرات على هذه الشروط</h3>
+            نحتفظ بحق تعديل هذه الشروط في أي وقت. استمرارك في استخدام التطبيق بعد التعديل يعني موافقتك على الشروط المحدّثة.
+
+            <h3>التواصل</h3>
+            لأي استفسارات، تواصل معنا عبر صفحة التطبيق في App Store أو عبر حساب المطور على X (تويتر).
         </div>
     </div>
 
-    <div class="section-title">شروط الاستخدام</div>
-    <div class="content">
-        باستخدامك لتطبيق "ميعاد"، فإنك توافق على الالتزام بالشروط التالية:
-        <h3>1. الملكية الفكرية والاسم التجاري:</h3>
-        تطبيق "ميعاد - Meead" هو عمل فردي مستقل، وأي تشابه في الاسم مع علامات تجارية أو كيانات في دول أخرى هو تشابه غير مقصود. التطبيق لا يدعي الارتباط بأي جهة حكومية أو خاصة، وجميع التصاميم والواجهات داخل التطبيق هي ملكية فكرية للمطور.
-        <h3>2. إخلاء المسؤولية التقنية:</h3>
-        يُقدم التطبيق "كما هو" (As Is) دون ضمانات صريحة أو ضمنية. المطور غير مسؤول عن أي أضرار قد تلحق بالمستخدم نتيجة: (أ) فشل وصول التنبيهات. (ب) فقدان البيانات بسبب خلل في مزامنة السحابة (iCloud) أو نظام التشغيل. (ج) أي خطأ بشري في إدخال البيانات. يقر المستخدم بأن الاعتماد على التطبيق في المواعيد الحساسة هو مسؤوليته الشخصية.
-        <h3>3. عمل التنبيهات وصلاحيات النظام:</h3>
-        يعتمد عمل التنبيهات (البصمة، الدوام، المهام) على إعدادات نظام iOS وصلاحيات الطاقة والبطارية؛ لذا يجب على المستخدم التأكد من منح التطبيق كافة الصلاحيات وضبط إعدادات الجهاز لضمان وصول التنبيهات في الخلفية.
-        <h3>4. القانون الواجب التطبيق:</h3>
-        تخضع هذه الشروط والأحكام وتُفسر وفقاً للأنظمة والقوانين السارية في <b>المملكة العربية السعودية</b>. وأي نزاع ينشأ عن استخدام التطبيق يكون الاختصاص الحصري فيه للمحاكم السعودية.
+    <!-- English -->
+    <div class="lang-block" id="lang-en">
+        <div class="section-title">Terms of Use</div>
+        <div class="updated">Last updated: March 2026</div>
+        <div class="content">
+            By using Meead ("the App"), you agree to the following terms. If you do not agree to any of these terms, please do not use the App.
+
+            <h3>License and Use</h3>
+            The Developer grants you a limited, non-exclusive, non-transferable license to use the App on your Apple devices in accordance with these terms and Apple's Standard Licensed Application End User License Agreement (EULA).
+
+            <h3>Service Description</h3>
+            Meead is an app for managing shifts, tasks, leaves, and performance tracking. The App is an organizational tool and does not provide legal, financial, or professional advice. Decisions based on App data are your sole responsibility.
+
+            <h3>Subscriptions and Payments</h3>
+            <ul>
+                <li>The App offers free content and additional features via a paid subscription ("Meead Pro")</li>
+                <li>Available plans: monthly, yearly, and lifetime (one-time purchase)</li>
+                <li>All payments are processed through your Apple account</li>
+                <li>Monthly and yearly subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period</li>
+                <li>Renewal charges are billed to your Apple account within 24 hours before the current period ends</li>
+                <li>You can manage and cancel subscriptions from your Apple account settings</li>
+                <li>No refund is provided for the unused portion of the current subscription period once activated</li>
+                <li>The lifetime plan is a one-time purchase and does not renew</li>
+            </ul>
+
+            <h3>Your Data and Responsibility</h3>
+            <ul>
+                <li>You are solely responsible for the data you enter into the App</li>
+                <li>We are not responsible for data loss resulting from app deletion, device failure, or any cause beyond our control</li>
+                <li>iCloud sync relies on Apple's services and may be affected by service availability or your storage capacity</li>
+            </ul>
+
+            <h3>Intellectual Property</h3>
+            All intellectual property rights in the App, including design, source code, themes, icons, and content, are owned by the Developer. You may not copy, modify, distribute, or reverse-engineer any part of the App.
+
+            <h3>Disclaimer of Warranties</h3>
+            <ul>
+                <li>The App is provided "as is" without warranties of any kind, express or implied</li>
+                <li>We do not guarantee that the App will be error-free or continuously available</li>
+                <li>We are not liable for any direct or indirect damages resulting from the use of the App</li>
+                <li>Overtime calculations, deductions, and statistics are estimates and should not be relied upon as official records</li>
+                <li>Default leave settings are based on Saudi labor law and may not apply to your employer — please verify with your employer's policies</li>
+            </ul>
+
+            <h3>Limitation of Liability</h3>
+            To the maximum extent permitted by applicable law, the Developer shall not be liable for any special, incidental, consequential, or punitive damages, including loss of data or profits, even if advised of the possibility of such damages.
+
+            <h3>Termination</h3>
+            The Developer may suspend or terminate your access to the App if you violate these terms. You may stop using the App at any time by deleting it from your device.
+
+            <h3>Apple Terms</h3>
+            Use of the App is also subject to Apple's Standard EULA and App Store Terms of Service. In the event of a conflict between these terms and Apple's terms, Apple's terms shall prevail.
+
+            <h3>Governing Law</h3>
+            These terms are governed by and construed in accordance with the laws of the Kingdom of Saudi Arabia.
+
+            <h3>Changes to These Terms</h3>
+            We reserve the right to modify these terms at any time. Your continued use of the App after modification constitutes acceptance of the updated terms.
+
+            <h3>Contact Us</h3>
+            For any questions, contact us via the App's page on the App Store or the developer's account on X (Twitter).
+        </div>
     </div>
 
-    <div class="dev-info">
-        <img src="avatar.jpg" class="avatar" alt="M. Al-Qarni">
-        <div class="label" style="font-size: 12px; color: var(--sec);">المطور : Developer</div>
-        <div class="dev-name">م. محمد القرني<br><small>Eng. Mohammad Al-Qarni</small></div>
-        <a href="https://x.com/eng_m37?s=21" class="x-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
+    <!-- French -->
+    <div class="lang-block" id="lang-fr">
+        <div class="section-title">Conditions d'Utilisation</div>
+        <div class="updated">Dernière mise à jour : mars 2026</div>
+        <div class="content">
+            En utilisant Meead (« l'Application »), vous acceptez les conditions suivantes. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'Application.
+
+            <h3>Licence et utilisation</h3>
+            Le Développeur vous accorde une licence limitée, non exclusive et non transférable pour utiliser l'Application sur vos appareils Apple conformément à ces conditions et au contrat de licence utilisateur final standard d'Apple (EULA).
+
+            <h3>Description du service</h3>
+            Meead est une application de gestion des horaires de travail, des tâches, des congés et du suivi des performances. L'Application est un outil organisationnel et ne fournit pas de conseils juridiques, financiers ou professionnels. Les décisions basées sur les données de l'Application sont de votre seule responsabilité.
+
+            <h3>Abonnements et paiements</h3>
+            <ul>
+                <li>L'Application propose du contenu gratuit et des fonctionnalités supplémentaires via un abonnement payant (« Meead Pro »)</li>
+                <li>Formules disponibles : mensuelle, annuelle et à vie (achat unique)</li>
+                <li>Tous les paiements sont traités via votre compte Apple</li>
+                <li>Les abonnements mensuels et annuels se renouvellent automatiquement sauf annulation au moins 24 heures avant la fin de la période en cours</li>
+                <li>Vous pouvez gérer et annuler vos abonnements depuis les paramètres de votre compte Apple</li>
+                <li>Aucun remboursement n'est prévu pour la portion non utilisée de la période d'abonnement en cours</li>
+            </ul>
+
+            <h3>Vos données et votre responsabilité</h3>
+            <ul>
+                <li>Vous êtes seul responsable des données que vous saisissez dans l'Application</li>
+                <li>Nous ne sommes pas responsables de la perte de données résultant de la suppression de l'application, d'une panne d'appareil ou de toute cause hors de notre contrôle</li>
+            </ul>
+
+            <h3>Propriété intellectuelle</h3>
+            Tous les droits de propriété intellectuelle de l'Application sont la propriété du Développeur. Vous ne pouvez pas copier, modifier, distribuer ou procéder à l'ingénierie inverse de toute partie de l'Application.
+
+            <h3>Clause de non-responsabilité</h3>
+            <ul>
+                <li>L'Application est fournie « en l'état » sans garantie d'aucune sorte</li>
+                <li>Les calculs d'heures supplémentaires, de déductions et les statistiques sont des estimations et ne doivent pas être considérés comme des documents officiels</li>
+                <li>Les paramètres de congés par défaut sont basés sur le droit du travail saoudien et peuvent ne pas s'appliquer à votre employeur</li>
+            </ul>
+
+            <h3>Limitation de responsabilité</h3>
+            Dans toute la mesure permise par la loi, le Développeur ne sera pas responsable de tout dommage spécial, accessoire, consécutif ou punitif.
+
+            <h3>Conditions Apple</h3>
+            L'utilisation de l'Application est également soumise au CLUF standard d'Apple et aux conditions de service de l'App Store. En cas de conflit, les conditions d'Apple prévalent.
+
+            <h3>Droit applicable</h3>
+            Ces conditions sont régies par les lois du Royaume d'Arabie Saoudite.
+
+            <h3>Modifications</h3>
+            Nous nous réservons le droit de modifier ces conditions à tout moment. Votre utilisation continue de l'Application après modification vaut acceptation.
+
+            <h3>Contact</h3>
+            Pour toute question, contactez-nous via la page de l'application sur l'App Store ou le compte du développeur sur X (Twitter).
+        </div>
+    </div>
+
+    <!-- Turkish -->
+    <div class="lang-block" id="lang-tr">
+        <div class="section-title">Kullanım Koşulları</div>
+        <div class="updated">Son güncelleme: Mart 2026</div>
+        <div class="content">
+            Meead'ı ("Uygulama") kullanarak aşağıdaki koşulları kabul etmiş olursunuz. Bu koşullardan herhangi birini kabul etmiyorsanız, lütfen Uygulamayı kullanmayın.
+
+            <h3>Lisans ve Kullanım</h3>
+            Geliştirici, size bu koşullara ve Apple'ın Standart EULA'sına uygun olarak Uygulamayı Apple cihazlarınızda kullanmanız için sınırlı, münhasır olmayan ve devredilemez bir lisans verir.
+
+            <h3>Hizmet Açıklaması</h3>
+            Meead, vardiya, görev, izin yönetimi ve performans takibi için bir uygulamadır. Uygulama bir organizasyon aracıdır ve hukuki, mali veya mesleki danışmanlık sağlamaz. Uygulama verilerine dayalı kararlar yalnızca sizin sorumluluğunuzdadır.
+
+            <h3>Abonelikler ve Ödemeler</h3>
+            <ul>
+                <li>Uygulama, ücretsiz içerik ve ücretli abonelik ("Meead Pro") ile ek özellikler sunar</li>
+                <li>Mevcut planlar: aylık, yıllık ve ömür boyu (tek seferlik satın alma)</li>
+                <li>Tüm ödemeler Apple hesabınız üzerinden işlenir</li>
+                <li>Aylık ve yıllık abonelikler, mevcut dönem bitmeden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir</li>
+                <li>Aboneliklerinizi Apple hesap ayarlarınızdan yönetebilir ve iptal edebilirsiniz</li>
+                <li>Etkinleştirildikten sonra mevcut abonelik döneminin kullanılmayan kısmı için iade yapılmaz</li>
+            </ul>
+
+            <h3>Verileriniz ve Sorumluluğunuz</h3>
+            <ul>
+                <li>Uygulamaya girdiğiniz verilerden yalnızca siz sorumlusunuz</li>
+                <li>Uygulama silme, cihaz arızası veya kontrolümüz dışındaki nedenlerden kaynaklanan veri kaybından sorumlu değiliz</li>
+            </ul>
+
+            <h3>Fikri Mülkiyet</h3>
+            Tasarım, kaynak kodu, temalar, simgeler ve içerik dahil Uygulamadaki tüm fikri mülkiyet hakları Geliştiriciye aittir. Uygulamanın herhangi bir bölümünü kopyalayamaz, değiştiremez, dağıtamaz veya tersine mühendislik yapamazsınız.
+
+            <h3>Sorumluluk Reddi</h3>
+            <ul>
+                <li>Uygulama, açık veya zımni hiçbir garanti olmaksızın "olduğu gibi" sunulmaktadır</li>
+                <li>Fazla mesai hesaplamaları, kesintiler ve istatistikler tahminidir ve resmi kayıt olarak kullanılmamalıdır</li>
+                <li>Varsayılan izin ayarları Suudi iş hukukuna dayanmaktadır ve işvereniniz için geçerli olmayabilir</li>
+            </ul>
+
+            <h3>Sorumluluk Sınırlaması</h3>
+            Yürürlükteki yasanın izin verdiği azami ölçüde, Geliştirici veri veya kâr kaybı dahil herhangi bir özel, arızi, dolaylı veya cezai zarardan sorumlu tutulamaz.
+
+            <h3>Apple Koşulları</h3>
+            Uygulamanın kullanımı ayrıca Apple'ın Standart EULA'sına ve App Store Hizmet Koşullarına tabidir. Çelişki durumunda Apple'ın koşulları geçerlidir.
+
+            <h3>Uygulanacak Hukuk</h3>
+            Bu koşullar Suudi Arabistan Krallığı yasalarına tabidir.
+
+            <h3>Değişiklikler</h3>
+            Bu koşulları istediğimiz zaman değiştirme hakkını saklı tutarız. Değişiklik sonrasında Uygulamayı kullanmaya devam etmeniz, güncellenmiş koşulları kabul ettiğiniz anlamına gelir.
+
+            <h3>İletişim</h3>
+            Sorularınız için App Store'daki uygulama sayfası veya geliştiricinin X (Twitter) hesabı üzerinden bizimle iletişime geçebilirsiniz.
+        </div>
+    </div>
+
+    <!-- German -->
+    <div class="lang-block" id="lang-de">
+        <div class="section-title">Nutzungsbedingungen</div>
+        <div class="updated">Letzte Aktualisierung: März 2026</div>
+        <div class="content">
+            Durch die Nutzung von Meead („die App") stimmen Sie den folgenden Bedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, verwenden Sie die App bitte nicht.
+
+            <h3>Lizenz und Nutzung</h3>
+            Der Entwickler gewährt Ihnen eine eingeschränkte, nicht-exklusive und nicht übertragbare Lizenz zur Nutzung der App auf Ihren Apple-Geräten gemäß diesen Bedingungen und Apples Standard-EULA.
+
+            <h3>Dienstbeschreibung</h3>
+            Meead ist eine App zur Verwaltung von Schichten, Aufgaben, Urlaub und Leistungsüberwachung. Die App ist ein Organisationswerkzeug und bietet keine rechtliche, finanzielle oder berufliche Beratung. Entscheidungen auf Grundlage von App-Daten liegen in Ihrer alleinigen Verantwortung.
+
+            <h3>Abonnements und Zahlungen</h3>
+            <ul>
+                <li>Die App bietet kostenlose Inhalte und zusätzliche Funktionen über ein kostenpflichtiges Abonnement („Meead Pro")</li>
+                <li>Verfügbare Pläne: monatlich, jährlich und lebenslang (einmaliger Kauf)</li>
+                <li>Alle Zahlungen werden über Ihr Apple-Konto abgewickelt</li>
+                <li>Monats- und Jahresabonnements verlängern sich automatisch, sofern sie nicht mindestens 24 Stunden vor Ende des aktuellen Zeitraums gekündigt werden</li>
+                <li>Sie können Abonnements in Ihren Apple-Kontoeinstellungen verwalten und kündigen</li>
+                <li>Für den ungenutzten Teil des aktuellen Abonnementzeitraums wird nach Aktivierung keine Rückerstattung gewährt</li>
+            </ul>
+
+            <h3>Ihre Daten und Verantwortung</h3>
+            <ul>
+                <li>Sie sind allein für die in die App eingegebenen Daten verantwortlich</li>
+                <li>Wir haften nicht für Datenverluste durch App-Löschung, Geräteausfall oder andere Ursachen außerhalb unserer Kontrolle</li>
+            </ul>
+
+            <h3>Geistiges Eigentum</h3>
+            Alle geistigen Eigentumsrechte an der App, einschließlich Design, Quellcode, Designs, Symbole und Inhalte, gehören dem Entwickler. Sie dürfen keinen Teil der App kopieren, ändern, verbreiten oder zurückentwickeln.
+
+            <h3>Haftungsausschluss</h3>
+            <ul>
+                <li>Die App wird „wie besehen" ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt</li>
+                <li>Überstundenberechnungen, Abzüge und Statistiken sind Schätzungen und sollten nicht als offizielle Aufzeichnungen verwendet werden</li>
+                <li>Die Standard-Urlaubseinstellungen basieren auf dem saudischen Arbeitsrecht und gelten möglicherweise nicht für Ihren Arbeitgeber</li>
+            </ul>
+
+            <h3>Haftungsbeschränkung</h3>
+            Soweit gesetzlich zulässig, haftet der Entwickler nicht für besondere, zufällige, Folge- oder Strafschäden, einschließlich Daten- oder Gewinnverlust.
+
+            <h3>Apple-Bedingungen</h3>
+            Die Nutzung der App unterliegt auch Apples Standard-EULA und den App Store-Nutzungsbedingungen. Bei Widersprüchen gelten die Bedingungen von Apple.
+
+            <h3>Anwendbares Recht</h3>
+            Diese Bedingungen unterliegen den Gesetzen des Königreichs Saudi-Arabien.
+
+            <h3>Änderungen</h3>
+            Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Die fortgesetzte Nutzung der App nach einer Änderung gilt als Zustimmung zu den aktualisierten Bedingungen.
+
+            <h3>Kontakt</h3>
+            Bei Fragen kontaktieren Sie uns über die App-Seite im App Store oder das X-Konto (Twitter) des Entwicklers.
+        </div>
+    </div>
+
+    <div class="footer">
         <div class="copyright">جميع الحقوق محفوظة مِيعاد © 2026<br>All Rights Reserved - Meead</div>
     </div>
 </div>
+
+<script>
+    const rtlLangs = ['ar'];
+    function setLang(lang) {
+        document.querySelectorAll('.lang-block').forEach(b => b.classList.remove('active'));
+        const block = document.getElementById('lang-' + lang);
+        if (block) block.classList.add('active');
+        document.documentElement.dir = rtlLangs.includes(lang) ? 'rtl' : 'ltr';
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.onclick.toString().includes("'" + lang + "'")) btn.classList.add('active');
+        });
+        try { localStorage.setItem('meead_lang', lang); } catch(e) {}
+    }
+    function detectLang() {
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang');
+        if (urlLang && document.getElementById('lang-' + urlLang)) return urlLang;
+        try { const saved = localStorage.getItem('meead_lang'); if (saved && document.getElementById('lang-' + saved)) return saved; } catch(e) {}
+        const bl = (navigator.language || '').substring(0, 2);
+        if (document.getElementById('lang-' + bl)) return bl;
+        return 'ar';
+    }
+    setLang(detectLang());
+</script>
 </body>
 </html>
